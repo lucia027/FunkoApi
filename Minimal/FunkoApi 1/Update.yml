@@ -1,0 +1,29 @@
+info:
+  name: Update
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: http://localhost:5034/api/funkos/2
+  body:
+    type: json
+    data: |-
+      {
+        "id": 2,
+        "nombre": "Natsu Dragneel",
+        "precio": 21.99,
+        "stock": 5,
+        "categoria": "Fairy Tail",
+        "createAt": "2026-10-01T19:42:28.8205997+02:00",
+        "updateAt": "2026-10-01T19:42:28.8205995+02:00",
+        "isDeleted": false
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

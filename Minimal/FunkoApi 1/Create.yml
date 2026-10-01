@@ -1,0 +1,29 @@
+info:
+  name: Create
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: http://localhost:5034/api/funkos
+  body:
+    type: json
+    data: |-
+      {
+        "id": 1,
+        "nombre": "Naruto Uzumaki",
+        "precio": 18.50,
+        "stock": 7,
+        "categoria": "Naruto",
+        "createAt": "2026-10-01T18:14:41.6593068+02:00",
+        "updateAt": "2026-10-01T18:14:41.6593061+02:00",
+        "isDeleted": false
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
