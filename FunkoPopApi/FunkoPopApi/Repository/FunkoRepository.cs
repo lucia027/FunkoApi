@@ -7,11 +7,57 @@ public class FunkoRepository : IFunkoRepository {
     private readonly Dictionary<int, Funko> _funkos = [];
     private int _nextId = 0;
     
+    public FunkoRepository() {
+        Create(new Funko(
+            0,
+            "Goku",
+            15.99m,
+            10,
+            "Dragon Ball",
+            DateTime.Now,
+            DateTime.Now,
+            false
+        ));
+
+        Create(new Funko(
+            0,
+            "Naruto Uzumaki",
+            18.50m,
+            7,
+            "Naruto",
+            DateTime.Now,
+            DateTime.Now,
+            false
+        ));
+
+        Create(new Funko(
+            0,
+            "Natsu Dragneel",
+            21.99m,
+            5,
+            "Fairy Tail",
+            DateTime.Now,
+            DateTime.Now,
+            false
+        ));
+
+        Create(new Funko(
+            0,
+            "Gojo Satoru",
+            24.99m,
+            8,
+            "Jujutsu Kaisen",
+            DateTime.Now,
+            DateTime.Now,
+            false
+        ));
+    }
+    
     public IEnumerable<Funko> GetAll() {
         return _funkos.Values;
     }
 
-    public Funko GetById(int id) {
+    public Funko? GetById(int id) {
         return _funkos.Values.FirstOrDefault(x => x.Id == id);
     }
 
@@ -21,7 +67,7 @@ public class FunkoRepository : IFunkoRepository {
         return funko;
     }
 
-    public Funko? Update(Funko item, int id) {
+    public Funko? Update(int id, Funko item) {
         if(GetById(item.Id) is not {}) return null;
         
         _funkos.Remove(item.Id);
@@ -29,8 +75,9 @@ public class FunkoRepository : IFunkoRepository {
         return item;
     }
 
-    public Funko Delete(int id)
-    {
-        throw new NotImplementedException();
+    public bool Delete(int id) {
+        if (GetById(id) is not { } funko) return false;
+        _funkos.Remove(id);
+        return true;
     }
 }

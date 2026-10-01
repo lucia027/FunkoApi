@@ -17,7 +17,7 @@ public interface IFunkoRepository {
     /// </summary>
     /// <param name="id">Id del funko</param>
     /// <returns>Funko encontrado</returns>
-    Funko GetById(int id);
+    Funko? GetById(int id);
     
     /// <summary>
     /// Crea un nuevo funko en el sistema
@@ -32,12 +32,12 @@ public interface IFunkoRepository {
     /// <param name="item">Funko actualizado</param>
     /// <param name="id">Id del funko para actualizar</param>
     /// <returns>Funko actualizado</returns>
-    Funko? Update(Funko item, int id);
+    Funko? Update(int id, Funko item);
     
     /// <summary>
     /// ELimina un funko del sistema
     /// </summary>
     /// <param name="id">Id del funko a eliminar</param>
     /// <returns>Funko eliminado.</returns>
-    Funko Delete(int id);
+    bool Delete(int id);
 }
