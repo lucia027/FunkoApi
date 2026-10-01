@@ -1,0 +1,7 @@
+﻿services:
+  funkopopapi:
+    image: funkopopapi
+    build:
+      context: .
+      dockerfile: FunkoPopApi/Dockerfile
+
